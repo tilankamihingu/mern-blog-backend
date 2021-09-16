@@ -13,6 +13,6 @@ const artiicalSchema = new Schema({
     }
 })
 
-const Articles = mongoose.model("Article", artiicalSchema);
+const Articles = mongoose.model("Articles", artiicalSchema);
 
 module.exports = Articles;
