@@ -6,8 +6,8 @@ const Header = () => {
     return (
         <MainContainer>
             <h1>
-                Welcome to the<br />
-                Mern stack
+               Add your Article<br />
+                or Read Article
             </h1>
         </MainContainer>
     )
@@ -18,8 +18,9 @@ export default Header;
 //MAIN CONTAINER
 
 const MainContainer = styled.header`
-    background: #252529;
-    height: 25rem;
+    background: #071a52;
+    height: 15rem;
+    text-align: center;
 
     h1{
         transform: translate(-50%, -50%);

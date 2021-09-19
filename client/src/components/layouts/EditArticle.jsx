@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
-const AddArticle = () => {
+const EditArticle = (props) => {
     const [title, setTitle] = useState("");
     const [article, setArticle] = useState("");
     const [authorname, setAuthorname] = useState("");
@@ -21,19 +21,28 @@ const AddArticle = () => {
         setArticle('')
         setAuthorname('')
 
-        axios.post("/articles/add", articles)
+        axios.put(`/articles/update/${props.match.params.id}`, articles)
             .then(res => setMessage(res.data))
             .catch(err => {
                 console.log(err);
             });
     };
 
+    useEffect(() =>{
+        axios.get(`/articles/${props.match.params.id}`)
+            .then(res => [
+                setTitle(res.data.title),
+                setArticle(res.data.article),
+                setAuthorname(res.data.authorname)
+            ])
+            .catch(error => console.log(error))
+    },[])
     
 
     return (
         <AddArticleContainer>
         <div className="container">
-            <h1>Add New Article</h1>
+            <h1>Update Article</h1>
             <span className="message">{message}</span>
         <form onSubmit={changeOnClick} encType="multipart/form-data">
         <div className="form-group">
@@ -63,14 +72,14 @@ const AddArticle = () => {
             rows={3} 
              />
         </div>
-        <button type="submit" className="btn btn-primary">Post Article</button>
+        <button type="submit" className="btn btn-primary">Update Article</button>
       </form>
       </div>
       </AddArticleContainer>
     )
 }
 
-export default AddArticle;
+export default EditArticle;
 
 //MAIN CONTAINER
 const AddArticleContainer = styled.div`
