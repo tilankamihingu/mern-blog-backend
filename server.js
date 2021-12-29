@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+<<<<<<< HEAD
 const path = require('path')
+=======
+>>>>>>> 59651ad85a9dc22db49773fd3340d8f8628878f7
 
 require('dotenv').config();
 
@@ -26,6 +29,7 @@ connection.once("open", ()=>
 const articleRouter = require('./routes/articals');
 app.use('/articles', articleRouter);
 
+<<<<<<< HEAD
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
     app.get('*', (req, res) =>{
@@ -33,4 +37,6 @@ if(process.env.NODE_ENV === 'production'){
     })
 }
 
+=======
+>>>>>>> 59651ad85a9dc22db49773fd3340d8f8628878f7
 app.listen(port, ()=> console.log(`The app is running on port ${port}`))

@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node server.js",
     "server":"nodemon server.js",
     "client":"cd client && npm run start",
@@ -12,6 +13,12 @@
     "install-all": "concurrently \"npm run server install\" \"npm run client install\"",
     "dev":"concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild":"cd client && npm install && npm run build"
+=======
+    "server":"nodemon",
+    "client":"npm start --prefix client",
+    "dev":"concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> 59651ad85a9dc22db49773fd3340d8f8628878f7
   },
   "keywords": [],
   "author": "",
